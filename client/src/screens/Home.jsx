@@ -53,7 +53,7 @@ const Home = () => {
           );
         })}
       </div>
-      <div className="flex gap-10 pt-16">
+      <div className="flex gap-10 pt-16 text-white">
         <NavButton title={'Previous'} icon={<GrPrevious />} onClickHandler={previousHandler} disabledHandler={currentPage === 1}/>
         <h1 className="text-white">Page {currentPage}</h1>
         <NavButton title={'Next'} icon={<GrNext />} onClickHandler={nextHandler} disableHandler={characters.length <= currentPage * charactersPerPage}/>

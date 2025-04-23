@@ -6,8 +6,10 @@ import {
 } from "react-router";
 import './index.css'
 import App from './App.jsx'
-import Home from './pages/Home.jsx'
-import CharacterInfo from './pages/CharacterInfo.jsx';
+import Home from './screens/Home.jsx'
+import CharacterInfo from './screens/CharacterInfo.jsx';
+import SpellsPage from './screens/SpellsPage.jsx';
+import Enrollment from './screens/Enrollment.jsx';
 
 
 const router = createBrowserRouter([
@@ -16,7 +18,9 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { index: true, Component: Home },
-      { path: "character/:id", Component: CharacterInfo}
+      { path: "character/:id", Component: CharacterInfo },
+      { path: "spells", Component: SpellsPage },
+      { path: "enroll", Component: Enrollment },
     ]
   },
 ]);

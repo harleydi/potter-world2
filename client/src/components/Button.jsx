@@ -1,21 +1,14 @@
 import { NavLink } from "react-router"
 
-const Button = ({ title, href }) => {
+const Button = ({ title, href, onclick }) => {
   return (
-    <div className="flex gap-4">
-      <div className="relative group">
-        <NavLink to={href} className="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
-          <span className="absolute inset-0 rounded-xl bg-gradient-to-r from-teal-400 via-blue-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-          <span className="relative z-10 block px-6 py-3 rounded-xl bg-gray-950">
-            <div className="relative z-10 flex items-center space-x-2">
-              <span className="transition-all duration-500 group-hover:translate-x-1">{title}</span>
-              <svg className="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1" data-slot="icon" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path clipRule="evenodd" d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z" fillRule="evenodd" />
-              </svg>
-            </div>
-          </span>
-        </NavLink>
-      </div>
+    <div className="relative inline-flex items-center justify-center gap-4 group">
+      <div className="absolute inset-0 duration-1000 opacity-60 transitiona-all bg-gradient-to-r from-indigo-500 via-pink-500 to-yellow-400 rounded-xl blur-lg filter group-hover:opacity-100 group-hover:duration-200" />
+      <a role="button" className="group relative inline-flex items-center justify-center text-base rounded-xl bg-gray-900 px-8 py-3 font-semibold text-black transition-all duration-200 hover:bg-gray-800 hover:shadow-lg hover:-translate-y-0.5 hover:shadow-gray-600/30" title="payment" href={href} onClick={onclick}>{title}<svg aria-hidden="true" viewBox="0 0 10 10" height={10} width={10} fill="none" className="mt-0.5 ml-2 -mr-1 stroke-white stroke-2">
+          <path d="M0 5h7" className="transition opacity-0 group-hover:opacity-100" />
+          <path d="M1 1l4 4-4 4" className="transition group-hover:translate-x-[3px]" />
+        </svg>
+      </a>
     </div>
   )
 }

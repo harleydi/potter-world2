@@ -11,3 +11,12 @@ export const getAllCharacters = async () => {
         return error.response
     }
 }
+
+export const getAllSpells = async () => {
+    try {
+        const response = await axios.get(`${baseHpURL}/spells`)
+        return response.data
+    } catch (error) {
+        return error.message
+    }
+}

@@ -1,9 +1,13 @@
+import { useState } from "react"
 import { Outlet } from "react-router"
 
 const MainScreen = () => {
+  const [isQuizModalOpen, setIsQuizModalOpen] = useState(false)
   return (
-    <div className="h-[80vh] w-[90%] flex justify-center items-center border bg-slate-900/70">
-        <Outlet />
+    <div className=" w-screen flex justify-center items-center border bg-black">
+        <Outlet 
+          context={{ isQuizModalOpen, setIsQuizModalOpen }}
+        />
     </div>
   )
 }
