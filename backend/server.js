@@ -12,6 +12,7 @@ app.use(express.json())
 
 // Routes
 app.use("/auth", require("./routes/jwtAuth"))
+app.use("/users", require("./routes/users"))
 
 
 // Listen for port
