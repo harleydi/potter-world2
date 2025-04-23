@@ -26,7 +26,7 @@ const Home = () => {
         const foundCharacters = await getAllCharacters();
         setCharacters(foundCharacters);
       } catch (error) {
-        console.error("Error loading cases:", error);
+        console.error("Error loading characters:", error);
         setCharacters([]);
       }
     };

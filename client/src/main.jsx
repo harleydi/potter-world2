@@ -10,6 +10,8 @@ import Home from './screens/Home.jsx'
 import CharacterInfo from './screens/CharacterInfo.jsx';
 import SpellsPage from './screens/SpellsPage.jsx';
 import Enrollment from './screens/Enrollment.jsx';
+import Register from './screens/Register.jsx';
+import Login from './screens/Login.jsx';
 
 
 const router = createBrowserRouter([
@@ -21,6 +23,8 @@ const router = createBrowserRouter([
       { path: "character/:id", Component: CharacterInfo },
       { path: "spells", Component: SpellsPage },
       { path: "enroll", Component: Enrollment },
+      { path: "register", Component: Register },
+      { path: "login", Component: Login }
     ]
   },
 ]);
