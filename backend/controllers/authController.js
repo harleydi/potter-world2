@@ -50,6 +50,13 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
+    if (!email || !password) {
+        return res.status(400).json({
+            status: "Error",
+            message: "Email and password must be included"
+        })
+    }
+
     const user = await pool.query(
         "SELECT * FROM users WHERE email = $1",
         [email]
@@ -77,7 +84,7 @@ exports.login = async (req, res) => {
     delete userData.password
 
     res.status(200).json({
-        status: "error",
+        status: "success",
         token,
         user: userData
     })
