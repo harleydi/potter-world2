@@ -21,11 +21,11 @@ export const getAllSpells = async () => {
     }
 }
 
-export const registerUser = async () => {
+export const registerUser = async (userData) => {
     try {
-        const response = await axios.get(`${baseURL}/auth/register`)
+        const response = await axios.post(`${baseURL}/auth/register`, userData)
         console.log(response)
-        return response
+        return response.data
     } catch (error) {
         return error.message
     }

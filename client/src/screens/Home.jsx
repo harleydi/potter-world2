@@ -45,15 +45,15 @@ const Home = () => {
 
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="flex flex-wrap gap-4 justify-center">
+    <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-wrap gap-4 justify-center mt-28">
         {currentCharacters.map((character) => {
           return (
             <CharacterCard key={character.id} name={character.name} house={character.house} image={character.image}/>
           );
         })}
       </div>
-      <div className="flex gap-10 pt-16 text-white">
+      <div className="flex gap-10 mt-26 m-0 text-white">
         <NavButton title={'Previous'} icon={<GrPrevious />} onClickHandler={previousHandler} disabledHandler={currentPage === 1}/>
         <h1 className="text-white">Page {currentPage}</h1>
         <NavButton title={'Next'} icon={<GrNext />} onClickHandler={nextHandler} disableHandler={characters.length <= currentPage * charactersPerPage}/>

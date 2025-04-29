@@ -1,11 +1,38 @@
+import { useState } from "react"
+import { registerUser } from "../api/apiHelper"
+import { useNavigate } from "react-router"
+
 const Register = () => {
+  const navigate = useNavigate()
+  const [username, setUsername] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+
+  const register = async (e) => {
+    e.preventDefault()
+    const data = {
+      username: username,
+      email: email,
+      password: password
+    }
+    try {
+      const response = await registerUser(data)
+      console.log(response)
+      navigate("/login")
+      // return response.data
+    } catch (error) {
+      console.error("Error registering user: ", error)
+    }
+  }
+
   return (
     <div className="w-80 rounded-2xl bg-teal-500">
-      <div className="flex flex-col gap-2 p-8">
+      <form onSubmit={register} className="flex flex-col gap-2 p-8">
         <p className="text-center text-3xl text-gray-300 mb-4">Register</p>
-        <input className="bg-black text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" placeholder="Email" />
-        <input className="bg-black text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" placeholder="Password" />
-        <input className="bg-black text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" placeholder="Confirm password" />
+        <input onChange={(e) => setUsername(e.target.value)} value={username} className="bg-black text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" placeholder="Username" />
+        <input onChange={(e) => setEmail(e.target.value)} value={email} className="bg-black text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" placeholder="Email" />
+        <input onChange={(e) => setPassword(e.target.value)} value={password} className="bg-black text-white w-full rounded-lg border border-gray-300 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-2 focus:ring-offset-gray-800" placeholder="Password" />
         <label className="flex cursor-pointer items-center justify-between p-1 text-white">
           Accept terms of use
           <div className="relative inline-block">
@@ -14,7 +41,7 @@ const Register = () => {
           </div>
         </label>
         <button className="inline-block cursor-pointer rounded-md bg-gray-700 px-4 py-3.5 text-center text-sm font-semibold uppercase text-white transition duration-200 ease-in-out hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-700 focus-visible:ring-offset-2 active:scale-95">Register</button>
-      </div>
+      </form>
     </div>
   )
 }

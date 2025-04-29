@@ -40,7 +40,7 @@ const SpellsPage = () => {
     }
   return (
     <div className="flex flex-col items-center gap-4">
-      <div className="flex flex-wrap gap-4 justify-between">
+      <div className="flex flex-wrap gap-4 justify-between mt-20">
         {currentSpells.map((spell) => {
           return (
             <SpellCard key={spell.id} name={spell.name} description={spell.description} />
